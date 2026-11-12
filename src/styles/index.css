@@ -1,0 +1,328 @@
+/* ====== GLOBAL ========*/
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body, p, span, a, button {
+    font-family: "Inter", sans-serif;
+}
+
+.text-description {
+    white-space: pre-line;
+    font-size:1.2rem;
+}
+
+/* ====== UTILS ========= */
+
+/*============== METAL BTN ==============*/
+
+.btn-metal-dark {
+  display: inline-block;
+  font-weight: 500;
+  color: #f1f5f9;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+
+  /* Sfumatura diagonale tipo titanio trafilato */
+  background: linear-gradient(135deg, #2a2d32 0%, #17191c 50%, #202328 100%);
+  border: 1px solid #3f444e;
+
+  /* Riflesso luce sottilissimo sul bordo superiore */
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-metal-dark:hover {
+  color: #ffffff;
+  border-color: #64748b;
+  background: linear-gradient(135deg, #33373e 0%, #1e2126 50%, #282c33 100%);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    0 0 15px rgba(255, 255, 255, 0.08); /* Glow minimal */
+  transform: translateY(-1px);
+}
+
+.btn-metal-dark:active {
+  transform: translateY(0);
+  background: linear-gradient(135deg, #191b1e 0%, #22252a 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Clear-filter chip: same metal look, but reads as a reset action */
+.btn-metal-dark.btn-filter-clear {
+  padding: 0.6rem 1rem;
+  color: #cbd5e1;
+  border-style: dashed;
+  border-color: #64748b;
+  background: linear-gradient(135deg, #23262b 0%, #141619 50%, #1b1e22 100%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.btn-metal-dark.btn-filter-clear:hover {
+  color: #ffffff;
+  border-style: solid;
+  border-color: #f87171;
+  background: linear-gradient(135deg, #2f2a2b 0%, #1d191a 50%, #262123 100%);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+    0 0 15px rgba(248, 113, 113, 0.18);
+}
+
+.btn-metal-dark.btn-filter-clear:active {
+  background: linear-gradient(135deg, #191719 0%, #221e1f 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+/*=======================================*/
+
+/* =========== BACKGROUND UTILS==========*/
+
+/* badge bg type eCommerce */
+.bg-green {
+    background-color: #7DBA37;
+}
+
+/* badge bg type showcase website */
+.bg-violet {
+    background-color: #ada2fd;
+}
+
+/* badge bg type AI */
+.bg-orange {
+    background-color: #D17353;
+}
+
+/* badge bg type API service */
+
+.bg-red {
+    background-color: #f61500;
+}
+
+/* badge bg type CRM / ERP */
+.bg-blue {
+    background-color: #242893;
+}
+
+/* ====== HEADER ========*/
+
+/* Theme toggle: quiet by default, softly glowing on hover/focus.
+   The accent follows the action it offers: a warm sun on dark,
+   a cool moon on light. */
+.theme-toggle {
+  --theme-toggle-accent: #cbd5e1;
+  --theme-toggle-glow: rgba(203, 213, 225, 0.3);
+  --theme-toggle-ring: rgba(203, 213, 225, 0.15);
+  --theme-toggle-tint: rgba(255, 255, 255, 0.06);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  color: var(--bs-secondary-color);
+  background-color: transparent;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.theme-toggle svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-bs-theme="dark"] .theme-toggle {
+  --theme-toggle-accent: #fbbf24;             /* sun */
+  --theme-toggle-glow: rgba(251, 191, 36, 0.35);
+  --theme-toggle-ring: rgba(251, 191, 36, 0.15);
+  --theme-toggle-tint: rgba(251, 191, 36, 0.1);
+}
+
+[data-bs-theme="light"] .theme-toggle {
+  --theme-toggle-accent: #6366f1;             /* moon */
+  --theme-toggle-glow: rgba(99, 102, 241, 0.28);
+  --theme-toggle-ring: rgba(99, 102, 241, 0.15);
+  --theme-toggle-tint: rgba(99, 102, 241, 0.08);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--theme-toggle-accent);
+  border-color: var(--theme-toggle-accent);
+  background-color: var(--theme-toggle-tint);
+  box-shadow:
+    0 0 0 3px var(--theme-toggle-ring),
+    0 0 16px var(--theme-toggle-glow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.theme-toggle:hover svg,
+.theme-toggle:focus-visible svg {
+  transform: rotate(-20deg);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 2px var(--theme-toggle-ring),
+    0 0 8px var(--theme-toggle-glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle svg {
+    transition: none;
+  }
+
+  .theme-toggle:hover,
+  .theme-toggle:focus-visible {
+    transform: none;
+  }
+
+  .theme-toggle:hover svg,
+  .theme-toggle:focus-visible svg {
+    transform: none;
+  }
+}
+
+/* ====== MEDIA CAROUSEL - THEME-AWARE CONTROLS ====== */
+
+/* White arrows in both themes. Drop-shadows give them contrast on light
+   images without changing their color. The filter is consumed by the
+   control buttons, so override the variable on the carousel itself. */
+.carousel.theme-dark,
+.carousel.theme-light {
+    --bs-carousel-control-icon-filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.95))
+        drop-shadow(0 1px 3px rgba(0, 0, 0, 0.75)) !important;
+}
+
+/* Direct fallback in case another rule sets the filter on the buttons */
+.carousel.theme-dark .carousel-control-prev,
+.carousel.theme-dark .carousel-control-next,
+.carousel.theme-light .carousel-control-prev,
+.carousel.theme-light .carousel-control-next {
+    filter:
+        drop-shadow(0 0 1px rgba(0, 0, 0, 0.95))
+        drop-shadow(0 1px 3px rgba(0, 0, 0, 0.75)) !important;
+}
+
+/* Bootstrap dims the controls to 50%; keep them clearly visible */
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+    opacity: 0.9;
+}
+
+.carousel .carousel-control-prev:hover,
+.carousel .carousel-control-prev:focus,
+.carousel .carousel-control-next:hover,
+.carousel .carousel-control-next:focus {
+    opacity: 1;
+}
+
+/* Carousel images: never let them grow taller than the viewport */
+.carousel .carousel-item img {
+    max-height: 70vh;
+    object-fit: contain;
+    background-color: var(--bs-secondary-bg);
+}
+
+/* Tablet/desktop: keep image slides on the same 16:9 stage as the video,
+   so square images no longer take up the whole column/viewport height. */
+@media (min-width: 768px) {
+    .carousel .carousel-item img {
+        aspect-ratio: 16 / 9;
+        max-height: 60vh;
+    }
+}
+
+/* Caption: shrink to its content instead of stretching across the slide,
+   and leave clear space between it and the indicator pill. */
+.carousel .carousel-caption {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    max-width: min(90%, 40rem);
+    bottom: 3.5rem;
+    text-align: center;
+}
+
+/* Indicators: dark pill + white bars so they stay readable over photos
+   and video in both themes. */
+.carousel .carousel-indicators {
+    width: fit-content;
+    max-width: calc(100% - 1.5rem);
+    margin-inline: auto;
+    margin-bottom: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    gap: 0.45rem;
+    background-color: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.carousel .carousel-indicators [data-bs-target] {
+    width: 1.75rem;
+    height: 0.35rem;
+    margin: 0;
+    border: 0;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.55);
+    opacity: 1;
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.carousel .carousel-indicators .active {
+    width: 2.5rem;
+    background-color: #fff;
+}
+
+@media (max-width: 575.98px) {
+    .carousel .carousel-indicators {
+        padding: 0.25rem 0.45rem;
+        gap: 0.35rem;
+    }
+
+    .carousel .carousel-indicators [data-bs-target] {
+        width: 1.35rem;
+    }
+
+    .carousel .carousel-indicators .active {
+        width: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel .carousel-indicators [data-bs-target] {
+        transition: none;
+    }
+}
