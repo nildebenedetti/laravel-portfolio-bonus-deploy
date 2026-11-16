@@ -28,3 +28,10 @@
     line-height: 1;
     user-select: none;
 }
+
+/* La mail non ha spazi: forziamo il wrap per evitare che esca dal bottone */
+.mailBtn {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+}
