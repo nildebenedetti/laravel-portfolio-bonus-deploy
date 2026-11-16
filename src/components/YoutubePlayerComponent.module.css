@@ -34,7 +34,8 @@
     opacity: 1;
 }
 
-/* Skeleton shown while the embed boots, prevents the white flash */
+/* Skeleton shown while the embed boots, prevents the white flash.
+   It is purely decorative: never let it swallow taps meant for the player. */
 .placeholder {
     position: absolute;
     inset: 0;
@@ -50,6 +51,7 @@
     background-size: 200% 100%;
     animation: shimmer 1.6s linear infinite;
     transition: opacity 200ms ease;
+    pointer-events: none;
 }
 
 .isLoaded .placeholder {

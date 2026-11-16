@@ -246,6 +246,34 @@ body, p, span, a, button {
     opacity: 1;
 }
 
+/* Arrow buttons: Bootstrap stretches them over the whole side of the slide
+   (top: 0; bottom: 0; width: 15%), so their invisible click area sits on top
+   of the YouTube player and steals taps from play/pause, seek bar and
+   fullscreen. Keep them as compact buttons centred on the slide instead. */
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+    top: 50%;
+    bottom: auto;
+    width: 3rem;
+    height: 3rem;
+    transform: translateY(-50%);
+}
+
+/* Video slide: the player has no caption, so the gap under the frame is where
+   the indicator pill belongs. Keeping the pill outside the iframe prevents it
+   from covering the YouTube progress bar. */
+.carousel .carousel-item figure {
+    margin-bottom: 2.75rem;
+}
+
+/* On the video slide the arrows would sit on top of the iframe: on touch
+   screens even a few px of overlap can steal the tap meant for the player.
+   Hide them and let the indicator dots below the player handle navigation. */
+.carousel:has(.carousel-item.active iframe) .carousel-control-prev,
+.carousel:has(.carousel-item.active iframe) .carousel-control-next {
+    display: none;
+}
+
 /* Carousel images: never let them grow taller than the viewport */
 .carousel .carousel-item img {
     max-height: 70vh;
@@ -291,6 +319,7 @@ body, p, span, a, button {
 }
 
 .carousel .carousel-indicators [data-bs-target] {
+    position: relative;
     width: 1.75rem;
     height: 0.35rem;
     margin: 0;
@@ -299,6 +328,15 @@ body, p, span, a, button {
     background-color: rgba(255, 255, 255, 0.55);
     opacity: 1;
     transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+/* The bars are tiny: extend the touch target vertically (without growing the
+   pill or overlapping the neighbouring dots). Important on mobile, where the
+   dots are the only way to leave the video slide. */
+.carousel .carousel-indicators [data-bs-target]::before {
+    content: "";
+    position: absolute;
+    inset: -0.75rem 0;
 }
 
 .carousel .carousel-indicators .active {

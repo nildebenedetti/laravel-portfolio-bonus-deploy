@@ -20,7 +20,9 @@ function YoutubePlayerComponent({ videoID, title = "YouTube video player" }) {
     // No valid video: render nothing instead of a permanent "Loading video..."
     if (!videoId) return null;
 
-    const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1`;
+    // fs=1 keeps YouTube's fullscreen button enabled; allowFullScreen on the
+    // iframe is what lets the browser honour it (Safari in particular).
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1&fs=1`;
     const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
     return (
@@ -40,8 +42,8 @@ function YoutubePlayerComponent({ videoID, title = "YouTube video player" }) {
                     className={styles.iframe}
                     src={embedUrl}
                     title={title}
-                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                    allowFullScreen
                     referrerPolicy="strict-origin-when-cross-origin"
                     onLoad={() => setIsLoaded(true)}
                 />
