@@ -64,7 +64,7 @@ function Contacts() {
                     href={`mailto:${mail}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-50 btn-metal-dark fst-underlined inline-block text-center mb-3"
+                    className={`w-50 btn-metal-dark fst-underlined inline-block text-center mb-3 ${styles.mailBtn}`}
                 >
                 <IoMail className="text-xl me-2" />{mail}
                 </a>
