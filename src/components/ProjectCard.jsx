@@ -23,7 +23,7 @@ function ProjectCard({ project }) {
             <div>
                 <div className="card-top px-3 pt-3">
                     <h2 className="project-title text-capitalize h5 fw-bold">{project.title}</h2>
-                    <h5>{ project.type.name }</h5>
+                    <h6>{ project.type.name }</h6>
                 </div>
                 
                 <div className="card-body">
