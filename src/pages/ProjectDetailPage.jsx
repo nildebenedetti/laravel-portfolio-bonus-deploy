@@ -139,7 +139,7 @@ function ProjectDetailPage() {
 
                 {/* Tech Stack Badges */}
                 {project.technologies && project.technologies.length > 0 && <div className="d-flex align-items-baseline gap-2">
-                    <h5 className="mb-3">Techn Stack:</h5>
+                    <h5 className="mb-3">Tech Stack:</h5>
                 <div className="d-flex flex-wrap gap-2 mb-2">
                     {project.technologies.map((technology) => (
                     <span
