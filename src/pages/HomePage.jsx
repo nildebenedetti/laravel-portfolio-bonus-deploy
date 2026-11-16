@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router";
 import ProjectCard from "../components/ProjectCard.jsx";
 import { stackTypeRange } from "../utils/utilities.js";
+import { Link } from "react-router";
 
 function HomePage() {
   const [ types, setTypes ] = useState([]);
@@ -230,9 +231,9 @@ function HomePage() {
       </div>
     <div className="d-flex flex-column align-items-center justify-content-center gap-3 my-3 pt-3">
           <h5 className="mb-3 mt-3">Want to know more about me?</h5>
-          <a href="/contacts" className="btn-metal-dark mb-0">
+          <Link to="/contacts" className="btn-metal-dark mb-0">
             Go to Contacts
-          </a>
+          </Link>
         </div>
     </div>
     </>
