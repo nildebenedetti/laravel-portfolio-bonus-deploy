@@ -38,7 +38,7 @@ function ProjectCard({ project }) {
                         </div>
                     )}
                     
-                    { project.technologies && project.technologies.length > 0 && <div className="tech-stack-wrapper py-2 d-flex gap-2">
+                    { project.technologies && project.technologies.length > 0 && <div className={`${styles.techStackWrapper} py-2 d-flex gap-2`}>
                         { project.technologies.map( (tech) => {
                             return (<span  key={tech.id || tech.name}
                                         className="badge rounded-pill"
